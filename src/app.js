@@ -3,7 +3,7 @@ import clientRouter from './router/cliente.router.js'
 import bookingRouter from './router/reserva.router.js'
 import registerRouter from './router/register.router.js'
 const app = express()
-app.use(express.static('public'));
+
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }));
