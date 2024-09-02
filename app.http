@@ -1,0 +1,42 @@
+###
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "lionel",
+    "apellido": "messidsadss",
+    "email": "mesasda@gmail.com",
+    "contrasena": "1223sad4"
+
+}
+
+###
+GET http://localhost:3000/usuarios
+
+###
+GET http://localhost:3000/reserva
+
+###
+POST  http://localhost:3000/reserva
+Content-Type: application/json
+
+{
+  "cliente_id": 3, 
+   "origen": "Argentina", 
+   "destino": "Chile", 
+   "fecha_ida": "20-09-15", 
+   "fecha_vuelta": "20-10-15"
+
+}
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "email": "hgodfl@gmail.com",
+  "contrasena": "1233456"
+}
+
+
+
