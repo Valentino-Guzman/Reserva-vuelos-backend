@@ -21,7 +21,7 @@ export const registerUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(contrasena, 10);
     
         await pool.query('INSERT INTO usuario (email, contrasena) VALUES (?, ?)', [email, hashedPassword]);
-    
+        
         res.status(201).json({ message: 'Usuario creado correctamente' });
 
     } catch (error) {
@@ -33,8 +33,11 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
     try {
         const result = validateUser(req.body)
+        if(result .error) {
+            return res.status(400).json({ error: JSON.parse(result .error.message) })
+        }
         const { email, contrasena } = result.data
-    
+        
         //verificacion si existe un usuario
         const [rows] = await pool.query('SELECT * FROM usuario WHERE email = ?', [email]);
         if (rows.length === 0) {
